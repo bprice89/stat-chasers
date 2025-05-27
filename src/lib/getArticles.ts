@@ -12,7 +12,7 @@ export function getArticles(limit = 3) {
       return {
         slug: filename.replace('.md', ''),
         title: data.title,
-        date: data.date,
+        date: new Date(data.date).toISOString().split('T')[0], 
         coverImage: data.coverImage,
         tags: data.tags || [], // ← add this
       };
